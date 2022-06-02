@@ -1,4 +1,3 @@
 class PostsController < ApplicationController
-  def posts
-  end
+  def posts; end
 end
