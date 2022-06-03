@@ -6,7 +6,7 @@ This is a simple implementation of a blog website using Ruby on Rails where the 
 ## Milestones
 
 - [x] Milestone 01: Setup and controllers.
-- [ ] Milestone 02: Controllers specs.
+- [X] Milestone 02: Controllers specs.
 - [ ] Milestone 03: Creating a data model.
 - [ ] Milestone 04: Processing data in models.
 - [ ] Milestone 05: Views.
@@ -21,8 +21,9 @@ This is a simple implementation of a blog website using Ruby on Rails where the 
 ## Getting Started
 
 - Run `bundle install` to get the dependencies.
-- Run `rake db:create:all`
-- Run `rails s`
+- Run `rake db:create:all` to create all databases.
+- Run `rails s` to launch the website.
+- Run `bundle exec rspec` to run all tests.
 
 ## About me
 
