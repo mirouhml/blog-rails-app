@@ -1,0 +1,26 @@
+<section class="posts-section">
+  <%= render partial: 'users/user_card', locals: { user: @user } %>
+  <div class="posts">
+    <% if @posts.length > 0 %>
+      <% @posts.each do |post| %>
+        <a class="post-link" href="/users/<%= @user.id %>/posts/<%= post.id %>">
+          <%= render partial: 'post_card', locals: { post: post }%>
+        </a>
+        <div class="comments">
+          <% if post.comments.length > 0 %>
+            <% post.recent_comments.each do |comment| %>
+              <p><%= @user.name %>: <%= comment.text %></p>
+            <% end %>
+          <% else %>
+            <p>No comments yet</p>
+          <% end %>
+        </div>
+      <% end %>
+    <% else %>
+      <p>No posts yet</p>
+    <% end %>
+  </div>
+  <a href="#" class="all-posts-link">
+    Pagination
+  </a>
+</section>

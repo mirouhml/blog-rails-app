@@ -1,0 +1,18 @@
+<section class="posts-details">
+  <div class="post-details">
+    <div class="post-header">
+      <p><%= @post.title %> by <%= @user.name %></p>
+      <p class="counters">Comments: <%= @post.CommentsCounter || 0 %>, Likes: <%= @post.LikesCounter || 0 %></p>
+    </div>
+    <p><%= @post.text %></p>
+  </div>
+  <div class="comments">
+    <% if @post.comments.length > 0 %>
+      <% @post.comments.each do |comment| %>
+        <p><%= @user.name %>: <%= comment.text %></p>
+      <% end %>
+    <% else %>
+      <p>No comments yet</p>
+    <% end %>
+  </div>
+</section>

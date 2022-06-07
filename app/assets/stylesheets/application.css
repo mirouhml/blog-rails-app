@@ -1,15 +1,150 @@
-/*
- * This is a manifest file that'll be compiled into application.css, which will include all the files
- * listed below.
- *
- * Any CSS (and SCSS, if configured) file within this directory, lib/assets/stylesheets, or any plugin's
- * vendor/assets/stylesheets directory can be referenced here using a relative path.
- *
- * You're free to add application-wide styles to this file and they'll appear at the bottom of the
- * compiled file so the styles you add here take precedence over styles defined in any other CSS
- * files in this directory. Styles in this file should be added after the last require_* statement.
- * It is generally better to create a new file per style scope.
- *
- *= require_tree .
- *= require_self
- */
+.user {
+  display: flex;
+  width: 90%;
+  padding: 1rem 0 1rem 1rem;
+}
+
+.user > img {
+  margin-right: 1rem;
+}
+
+.user-info {
+  display: flex;
+  border: 1px black solid;
+  flex-grow: 1;
+  justify-content: space-between;
+  padding: 0 1rem;
+}
+
+.user-info > p {
+  align-self: flex-end;
+}
+
+.users {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  width: 100%;
+}
+
+.users > a {
+  all: unset;
+  cursor: pointer;
+  width: 100%;
+  margin: 0.5rem 0;
+}
+
+.bio {
+  border: 1px black solid;
+  padding-left: 1rem;
+  width: 90%;
+  margin: 1rem;
+}
+
+.bio > p {
+  padding-right: 1rem;
+}
+
+.user-details {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  width: 100%;
+}
+
+.recent-posts {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  width: 100%;
+}
+
+.post-link {
+  all: unset;
+  border: 1px black solid;
+  padding: 0.5rem;
+  width: 90%;
+  margin: 1rem;
+  cursor: pointer;
+}
+
+.all-posts-link {
+  all: unset;
+  border: 1px black solid;
+  padding: 0.5rem;
+  margin: 1rem;
+  cursor: pointer;
+}
+
+.post {
+  display: flex;
+  flex-direction: column;
+  padding: 0.5rem;
+}
+
+.post > h2 {
+  margin: 0;
+}
+
+.post > div {
+  display: flex;
+  justify-content: flex-end;
+}
+
+.counters {
+  margin: 0;
+}
+
+.posts-section {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+}
+
+.posts {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  width: 100%;
+}
+
+.posts > .post {
+  width: 90%;
+  border: 1px black solid;
+}
+
+.posts > .comments {
+  width: 90%;
+  border: 1px black solid;
+  padding: 0.5rem;
+  margin: 1rem;
+}
+
+.posts-details {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  width: 100%;
+}
+
+.post-details {
+  width: 90%;
+  border: 1px black solid;
+  padding: 0.5rem;
+}
+
+.posts-details > .comments {
+  width: 90%;
+  border: 1px black solid;
+  padding: 0.5rem;
+  margin: 1rem;
+}
+
+.post-header {
+  display: flex;
+  justify-content: space-between;
+}
+
+.post-header > p {
+  margin: 0;
+}
