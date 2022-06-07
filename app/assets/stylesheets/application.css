@@ -1,7 +1,7 @@
 .user {
   display: flex;
   width: 90%;
-  padding: 1rem;
+  padding: 1rem 0 1rem 1rem;
 }
 
 .user > img {
@@ -25,4 +25,126 @@
   flex-direction: column;
   align-items: center;
   width: 100%;
+}
+
+.users > a {
+  all: unset;
+  cursor: pointer;
+  width: 100%;
+  margin: 0.5rem 0;
+}
+
+.bio {
+  border: 1px black solid;
+  padding-left: 1rem;
+  width: 90%;
+  margin: 1rem;
+}
+
+.bio > p {
+  padding-right: 1rem;
+}
+
+.user-details {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  width: 100%;
+}
+
+.recent-posts {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  width: 100%;
+}
+
+.post-link {
+  all: unset;
+  border: 1px black solid;
+  padding: 0.5rem;
+  width: 90%;
+  margin: 1rem;
+  cursor: pointer;
+}
+
+.all-posts-link {
+  all: unset;
+  border: 1px black solid;
+  padding: 0.5rem;
+  margin: 1rem;
+  cursor: pointer;
+}
+
+.post {
+  display: flex;
+  flex-direction: column;
+  padding: 0.5rem;
+}
+
+.post > h2 {
+  margin: 0;
+}
+
+.post > div {
+  display: flex;
+  justify-content: flex-end;
+}
+
+.counters {
+  margin: 0;
+}
+
+.posts-section {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+}
+
+.posts {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  width: 100%;
+}
+
+.posts > .post {
+  width: 90%;
+  border: 1px black solid;
+}
+
+.posts > .comments {
+  width: 90%;
+  border: 1px black solid;
+  padding: 0.5rem;
+  margin: 1rem;
+}
+
+.posts-details {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  width: 100%;
+}
+
+.post-details {
+  width: 90%;
+  border: 1px black solid;
+  padding: 0.5rem;
+}
+
+.posts-details > .comments {
+  width: 90%;
+  border: 1px black solid;
+  padding: 0.5rem;
+  margin: 1rem;
+}
+
+.post-header {
+  display: flex;
+  justify-content: space-between;
+}
+
+.post-header > p {
+  margin: 0;
 }
