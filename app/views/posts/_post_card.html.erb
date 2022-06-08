@@ -2,6 +2,8 @@
   <h2><%= post.title %></h2>
   <p><%= post.text %></p>
   <div>
-    <p class="counters">Comments: <%= post.CommentsCounter || 0 %>, Likes: <%= post.LikesCounter || 0 %></p>
+    <div class="counters">
+      <p>Comments: <%= post.CommentsCounter || 0 %>, Likes: <%= post.LikesCounter || 0 %></p>
+    </div>
   </div>
 </div>
