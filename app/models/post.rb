@@ -3,6 +3,11 @@ class Post < ApplicationRecord
   has_many :comments
   has_many :likes
 
+  validates :title, presence: true, length: { maximum: 250 }
+  validates :CommentsCounter, presence: true, numericality { greater_than_or_equal_to: 0 }
+  validates :LikesCounter, presence: true, numericality { greater_than_or_equal_to: 0 }
+
+
   def update_posts_counter(number)
     user.update(PostsCounter: number)
   end
