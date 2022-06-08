@@ -20,7 +20,10 @@
       <p>No posts yet</p>
     <% end %>
   </div>
-  <a href="#" class="all-posts-link">
-    Pagination
-  </a>
+  <div>
+    <%= link_to 'Add a new post', new_user_post_path, class: 'all-posts-link' %>
+    <a href="#" class="all-posts-link">
+      Pagination
+    </a>
+  </div>
 </section>

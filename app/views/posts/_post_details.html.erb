@@ -15,4 +15,8 @@
       <p>No comments yet</p>
     <% end %>
   </div>
+  <div class="buttons">
+    <%= link_to 'Add a new comment', new_user_post_comment_path(@user, @post), class: 'all-posts-link' %>
+    <%= button_to 'Like', user_post_likes_path(@user, @post), method: :post, class: 'all-posts-link'%>
+  </div>
 </section>
