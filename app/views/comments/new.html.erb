@@ -1,7 +1,9 @@
-<h1>Add a comment</h1>
+<section class="comment-section">
+  <h1>Add a comment</h1>
 
-<%= form_with model: @comment, url: user_post_comments_url, method: :post, class: 'comment-form' do |form| %>
-  <%= form.label :text, 'Content' %>
-  <%= form.text_area :text, class: 'comment-text'%>
-  <%= form.submit 'Comment', class: 'comment-button', data: {disable_with: "Loading..."} %>
-<% end %>
+  <%= form_with model: @comment, url: user_post_comments_url, method: :post, class: 'comment-form' do |form| %>
+    <%= form.label :text, 'Content' %>
+    <%= form.text_area :text, class: 'comment-text'%>
+    <%= form.submit 'Comment', class: 'comment-button', data: {disable_with: "Loading..."} %>
+  <% end %>
+</section>
