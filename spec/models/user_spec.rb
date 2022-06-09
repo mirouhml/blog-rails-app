@@ -19,4 +19,8 @@ RSpec.describe User, type: :model do
     subject.PostsCounter = -1
     expect(subject).to_not be_valid
   end
+
+  it 'recent_posts method should return an empty array' do
+    expect(subject.recent_posts).to be_empty
+  end
 end
