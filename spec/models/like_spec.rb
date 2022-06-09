@@ -1,11 +1,11 @@
 require 'rails_helper'
 
 describe Like, type: :model do
-  subject {
+  subject do
     user = User.create(name: 'John', photo: 'Random photo', bio: 'Random bio', PostsCounter: 0)
-    post = Post.create(title: 'title', text: 'eRandom text', CommentsCounter: 0, LikesCounter: 0, author_id: user.id) 
+    post = Post.create(title: 'title', text: 'eRandom text', CommentsCounter: 0, LikesCounter: 0, author_id: user.id)
     Like.new(author_id: user.id, post_id: post.id)
-  }
+  end
 
   before { subject.save }
 

@@ -7,7 +7,6 @@ class Post < ApplicationRecord
   validates :CommentsCounter, presence: true, numericality: { greater_than_or_equal_to: 0 }
   validates :LikesCounter, presence: true, numericality: { greater_than_or_equal_to: 0 }
 
-
   def update_posts_counter(number)
     author.update(PostsCounter: number)
   end
