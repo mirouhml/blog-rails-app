@@ -1,1 +1,5 @@
-<%= render 'post_details' %>
+<% if (!@post.nil?) %>
+  <%= render 'post_details' %>
+<% else %>
+  <h1>Post not found</h1>
+<% end %>

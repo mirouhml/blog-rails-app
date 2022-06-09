@@ -11,9 +11,12 @@ class CommentsController < ApplicationController
     @comment.post = post
     @comment.author = current_user
 
-    render :new unless @comment.save
-
-    redirect_to user_post_url(post_author, post)
+    if @comment.save
+      redirect_to user_post_url(post_author, post), notice: 'Comment was successfully registered!'
+    else
+      render :new
+      flash[:alert] = 'Comment was not registered, please try again later.'
+    end
   end
 
   private

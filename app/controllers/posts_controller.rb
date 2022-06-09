@@ -1,12 +1,16 @@
 class PostsController < ApplicationController
   def index
-    @user = User.find(params[:user_id])
+    return unless User.exists?(params[:user_id])
+
+    @user = @user = User.includes(posts: %i[comments likes]).find_by(id: params[:user_id])
     @posts = @user.posts
   end
 
   def show
+    return unless Post.exists?(params[:id])
+
     @user = current_user
-    @post = Post.find(params[:id])
+    @post = Post.find_by(id: params[:id], author_id: params[:user_id])
   end
 
   def new
@@ -18,9 +22,12 @@ class PostsController < ApplicationController
     user = current_user
     @post.author = user
 
-    render :new unless @post.save
-
-    redirect_to user_posts_path(user, @post)
+    if @post.user
+      redirect_to user_posts_path(user, @post), notice: 'Post was successfully created!'
+    else
+      render :new
+      flash[:alert] = 'Post was not created, please try again later.'
+    end
   end
 
   private

@@ -13,10 +13,6 @@ RSpec.describe UsersController, type: :request do
     it 'returns a 200' do
       expect(response).to have_http_status(:ok)
     end
-
-    it 'loads the correct elements' do
-      expect(response.body).to include('Users')
-    end
   end
 
   describe 'GET show' do
@@ -30,10 +26,6 @@ RSpec.describe UsersController, type: :request do
 
     it 'returns a 200' do
       expect(response).to have_http_status(:ok)
-    end
-
-    it 'loads the correct elements' do
-      expect(response.body).to include('User')
     end
   end
 end
