@@ -22,9 +22,12 @@ class PostsController < ApplicationController
     user = current_user
     @post.author = user
 
-    render :new unless @post.save
-
-    redirect_to user_posts_path(user, @post)
+    if @post.user
+      redirect_to user_posts_path(user, @post), notice: 'Post was successfully created!'
+    else
+      render :new
+      flash[:alert] = 'Post was not created, please try again later.'
+    end
   end
 
   private
