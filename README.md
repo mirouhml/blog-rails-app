@@ -11,7 +11,7 @@ This is a simple implementation of a blog website using Ruby on Rails where the 
 - [X] Milestone 04: Processing data in models.
 - [X] Milestone 05: Views.
 - [X] Milestone 06: Forms
-- [ ] Milestone 07: Validations, Model specs, and n+1 problems.
+- [X] Milestone 07: Validations, Model specs, and n+1 problems.
 - [ ] Milestone 08: Add Devise.
 - [ ] Milestone 09: Add authorization rules.
 - [ ] Milestone 10: Integration specs for Views.
