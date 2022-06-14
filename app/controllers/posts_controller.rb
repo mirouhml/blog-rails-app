@@ -2,14 +2,14 @@ class PostsController < ApplicationController
   def index
     return unless User.exists?(params[:user_id])
 
-    @user = @user = User.includes(posts: %i[comments]).find_by(id: params[:user_id])
+    @user = User.includes(posts: %i[comments]).find_by(id: params[:user_id])
     @posts = @user.posts
   end
 
   def show
     return unless Post.exists?(params[:id])
 
-    @user = current_user
+    @user = User.find_by(id: params[:user_id])
     @post = Post.find_by(id: params[:id], author_id: params[:user_id])
   end
 
