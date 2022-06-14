@@ -58,6 +58,7 @@ group :development, :test do
   gem 'ffi'
   gem 'rails-controller-testing'
   gem 'rspec-rails'
+  gem 'letter_opener', '~> 1.4', '>= 1.4.1'
 end
 
 group :development do
@@ -77,3 +78,5 @@ group :test do
   gem 'selenium-webdriver'
   gem 'webdrivers'
 end
+
+gem 'devise', '~> 4.8'

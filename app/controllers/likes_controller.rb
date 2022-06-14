@@ -9,6 +9,8 @@ class LikesController < ApplicationController
     else
       like = Like.create(author: user, post:)
       if like.save
+        post.LikesCounter += 1
+        post.save
         redirect_to user_post_path(post.author, post), notice: 'Post successfully liked'
       else
         flash[:alert] = 'Could not like the post, please try again later.'

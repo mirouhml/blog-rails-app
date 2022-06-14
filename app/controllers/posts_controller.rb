@@ -18,11 +18,12 @@ class PostsController < ApplicationController
   end
 
   def create
-    @post = Post.new(post_params)
     user = current_user
+    @post = Post.new(post_params)
     @post.author = user
-
-    if @post.author
+    if @post.save
+      user.PostsCounter += 1
+      user.save
       redirect_to user_posts_path(user, @post), notice: 'Post was successfully created!'
     else
       render :new
