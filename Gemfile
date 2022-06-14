@@ -53,9 +53,9 @@ group :development, :test do
   gem 'bullet'
   gem 'debug', platforms: %i[mri mingw x64_mingw]
   gem 'ffi'
+  gem 'letter_opener', '~> 1.4', '>= 1.4.1'
   gem 'rails-controller-testing'
   gem 'rspec-rails'
-  gem 'letter_opener', '~> 1.4', '>= 1.4.1'
 end
 
 group :development do

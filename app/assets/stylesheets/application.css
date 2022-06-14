@@ -1,3 +1,28 @@
+html {
+  height: 100%;
+}
+
+body {
+  margin: 0;
+  padding: 0;
+  width: 100%;
+  display: flex;
+  flex-direction: column;
+  height: 100%;
+}
+
+header {
+  display: flex;
+  justify-content: flex-end;
+}
+
+.flash {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  width: 100%;
+}
+
 .user {
   display: flex;
   width: 90%;
@@ -203,4 +228,41 @@
   display: flex;
   flex-direction: column;
   width: 60%;
+}
+
+.devise-form {
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+  height: 100%;
+  width: 100%;
+}
+
+input {
+  padding: 0.5rem;
+  width: 100%;
+  border: 1px solid black;
+  margin: 1rem;
+}
+
+.devise-check {
+  width: fit-content;
+}
+
+.devise-form > form {
+  width: 100%;
+  max-width: 590px;
+}
+
+.actions {
+  width: 100%;
+  display: flex;
+  justify-content: center;
+}
+
+.devise-button {
+  width: fit-content;
+  align-self: center;
+  padding: 0.5rem 1rem;
 }
