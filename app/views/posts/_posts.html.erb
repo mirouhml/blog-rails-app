@@ -9,7 +9,7 @@
         <div class="comments">
           <% if post.comments.length > 0 %>
             <% post.recent_comments.each do |comment| %>
-              <p><%= @user.name %>: <%= comment.text %></p>
+              <p><%= comment.author.name %>: <%= comment.text %></p>
             <% end %>
           <% else %>
             <p>No comments yet</p>
@@ -26,6 +26,4 @@
       Pagination
     </a>
   </div>
-  <p class="notice"><%= flash[:notice] %></p>
-  <p class="alert"><%= flash[:alert] %></p>
 </section>
