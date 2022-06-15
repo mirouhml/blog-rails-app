@@ -30,11 +30,10 @@ RSpec.describe 'user_show', type: :feature do
     expect(page).to have_content(user.posts.second.title)
   end
 
- it 'can see the post body' do
-  post = Post.all.first
+  it 'can see the post body' do
+    post = Post.all.first
     expect(page).to have_content(post.text)
   end
- 
 
   it 'can see how many comments the post have' do
     post = Post.all.first
