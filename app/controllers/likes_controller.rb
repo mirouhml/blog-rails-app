@@ -21,10 +21,9 @@ class LikesController < ApplicationController
   def destroy
     post = Post.find(params[:post_id])
     user = current_user
-    like = Like.where(author: user, post: post)
+    like = Like.find_by(post_id: post.id, author_id: user.id)
 
-    if like.present?
-      like.destroy
+    if like.destroy
       post.LikesCounter -= 1
       post.save
       redirect_to user_post_path(post.author, post), notice: 'Post successfully unliked'
