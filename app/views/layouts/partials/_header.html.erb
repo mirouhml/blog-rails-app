@@ -1,0 +1,6 @@
+<header>
+  <%= button_to 'Home', root_path, method: :get, class: 'all-posts-link' %>
+  <%= button_to 'Login', new_user_session_path, class: 'all-posts-link' unless user_signed_in? %>
+  <%= button_to 'Sign-up', new_user_registration_path, method: :get, class: 'all-posts-link' unless user_signed_in? %>
+  <%= button_to 'Logout', destroy_user_session_path, method: :delete, class: 'all-posts-link' if user_signed_in?%>
+</header>

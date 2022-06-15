@@ -12,6 +12,8 @@ class CommentsController < ApplicationController
     @comment.author = current_user
 
     if @comment.save
+      post.CommentsCounter += 1
+      post.save
       redirect_to user_post_url(post_author, post), notice: 'Comment was successfully registered!'
     else
       render :new

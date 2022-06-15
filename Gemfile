@@ -53,6 +53,7 @@ group :development, :test do
   gem 'bullet'
   gem 'debug', platforms: %i[mri mingw x64_mingw]
   gem 'ffi'
+  gem 'letter_opener', '~> 1.4', '>= 1.4.1'
   gem 'rails-controller-testing'
   gem 'rspec-rails'
 end
@@ -74,3 +75,5 @@ group :test do
   gem 'selenium-webdriver'
   gem 'webdrivers'
 end
+
+gem 'devise', '~> 4.8'
