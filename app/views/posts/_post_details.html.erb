@@ -9,7 +9,12 @@
   <div class="comments">
     <% if @post.comments.length > 0 %>
       <% @post.comments.each do |comment| %>
-        <p><%= @user.name %>: <%= comment.text %></p>
+        <div class="comment">
+          <p><%= @user.name %>: <%= comment.text %></p>
+          <% if can? :destroy, comment %>
+            <%= button_to 'Delete', user_post_comment_path(comment.author, @post, comment ), method: :delete, class: 'all-posts-link' %>
+          <% end %>
+        </div>
       <% end %>
     <% else %>
       <p>No comments yet</p>
@@ -17,6 +22,13 @@
   </div>
   <div class="buttons">
     <%= link_to 'Add a new comment', new_user_post_comment_path(@user, @post), class: 'all-posts-link' %>
-    <%= button_to 'Like', user_post_likes_path(@user, @post), method: :post, class: 'all-posts-link'%>
+    <% if @like %>
+      <%= button_to 'Liked', user_post_like_path(@user, @post), method: :delete, class: 'all-posts-link' %>
+    <% else %>
+      <%= button_to 'Like', user_post_likes_path(@user, @post), method: :post, class: 'all-posts-link' %>
+    <% end %>
+    <% if can? :destroy, @post %>
+      <%= button_to 'Delete', user_post_path(@user, @post), method: :delete, class: 'all-posts-link' %>
+    <% end %>
   </div>
 </section>
