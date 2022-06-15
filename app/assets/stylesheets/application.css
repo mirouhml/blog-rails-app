@@ -239,7 +239,7 @@ header {
   width: 100%;
 }
 
-input {
+.devise-form > input {
   padding: 0.5rem;
   width: 100%;
   border: 1px solid black;
