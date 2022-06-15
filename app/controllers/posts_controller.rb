@@ -17,8 +17,11 @@ class PostsController < ApplicationController
 
   def new
     @post = Post.new
-    message = "You don't have permission to create a post here."
-    authorize! :add, @post, message: message unless current_user.id = params[:user_id]
+    id = params[:user_id].to_i
+    if current_user.id != id
+      message = "You don't have permission to create a post here. Please go to your profile page to create a post."
+      authorize! :add, @post, message: message
+    end
   end
 
   def create
