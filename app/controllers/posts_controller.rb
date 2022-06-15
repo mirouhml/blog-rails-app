@@ -1,4 +1,6 @@
 class PostsController < ApplicationController
+  load_and_authorize_resource
+
   def index
     return unless User.exists?(params[:user_id])
 
@@ -15,6 +17,8 @@ class PostsController < ApplicationController
 
   def new
     @post = Post.new
+    message = "You don't have permission to create a post here."
+    authorize! :add, @post, message: message unless current_user.id = params[:user_id]
   end
 
   def create
@@ -29,6 +33,22 @@ class PostsController < ApplicationController
       render :new
       flash[:alert] = 'Post was not created, please try again later.'
     end
+  end
+
+  def destroy
+    user = current_user
+    @post = Post.find_by(id: params[:id], author_id: params[:user_id])
+    like = Like.find_by(post_id: @post.id, author_id: params[:user_id])
+    if like.destroy
+      if @post.destroy
+        user.PostsCounter -= 1
+        user.save
+        flash[:notice] = 'Post deleted!'
+      else
+        flash[:alert] = 'Post was not deleted, please try again later.'
+      end
+    end
+    redirect_to user_posts_path(user)
   end
 
   private
