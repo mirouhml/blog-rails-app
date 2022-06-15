@@ -4,7 +4,7 @@ class PostsController < ApplicationController
   def index
     return unless User.exists?(params[:user_id])
 
-    @user = @user = User.includes(posts: %i[comments]).find_by(id: params[:user_id])
+    @user = User.includes(posts: %i[comments]).find_by(id: params[:user_id])
     @posts = @user.posts
   end
 
@@ -13,6 +13,7 @@ class PostsController < ApplicationController
 
     @user = current_user
     @post = Post.find_by(id: params[:id], author_id: params[:user_id])
+    @like = Like.exists?(post_id: @post.id, author_id: @user.id)
   end
 
   def new
