@@ -8,7 +8,7 @@ class ApplicationController < ActionController::Base
     respond_to do |format|
       format.json { head :forbidden, content_type: 'text/html' }
       format.html { redirect_back fallback_location: root_path, notice: exception.message }
-      format.js   { head :forbidden, content_type: 'text/html' }
+      format.js { head :forbidden, content_type: 'text/html' }
     end
   end
 
