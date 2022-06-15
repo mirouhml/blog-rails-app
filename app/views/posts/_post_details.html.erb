@@ -1,7 +1,7 @@
 <section class="posts-details">
   <div class="post-details">
     <div class="post-header">
-      <p><%= @post.title %> by <%= @user.name %></p>
+      <p><%= @post.title %> by <%= @post.author.name %></p>
       <p class="counters">Comments: <%= @post.CommentsCounter || 0 %>, Likes: <%= @post.LikesCounter || 0 %></p>
     </div>
     <p><%= @post.text %></p>
