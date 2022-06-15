@@ -50,8 +50,9 @@ RSpec.describe 'user_show', type: :feature do
   end
 
   it 'redirects to the post\'s page when a post is clicked' do
+    user = User.all.first
     post = Post.all.second
     click_link(post.title)
-    expect(page.current_path).to eql(user_post_path(user_id: 1, id: 2))
+    expect(page.current_path).to eql(user_post_path(user_id: user.id, id: post.id))
   end
 end
