@@ -22,11 +22,13 @@ class CommentsController < ApplicationController
     if @comment.save
       post.CommentsCounter += 1
       post.save
+      json_response(@comment, :created)
       redirect_to user_post_url(post_author, post), notice: 'Comment was successfully registered!'
     else
       render :new
       flash[:alert] = 'Comment was not registered, please try again later.'
     end
+
   end
 
   def destroy
