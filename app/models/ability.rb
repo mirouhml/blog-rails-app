@@ -9,7 +9,9 @@ class Ability
     return unless user.present?
 
     can :create, Comment
+    can :create, Like
     can :destroy, Comment, author_id: user.id
+    can :destroy, Like, author_id: user.id
     can :manage, Post, author_id: user.id
 
     return unless user.admin?
