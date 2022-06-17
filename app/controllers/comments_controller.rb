@@ -1,12 +1,6 @@
 class CommentsController < ApplicationController
   load_and_authorize_resource
 
-  def index
-    @post = Post.find(params[:post_id])
-    @comments = @post.comments
-    json_response(@comments)
-  end
-
   def new
     @comment = Comment.new
   end
@@ -18,18 +12,15 @@ class CommentsController < ApplicationController
     @comment = Comment.new(comment_params)
     @comment.post = post
     @comment.author = current_user
-    @comment.save
 
-    # if @comment.save
-    #   post.CommentsCounter += 1
-    #   post.save
-    #   redirect_to user_post_url(post_author, post), notice: 'Comment was successfully registered!'
-    # else
-    #   render :new
-    #   flash[:alert] = 'Comment was not registered, please try again later.'
-    # end
-    json_response(@comment, :created)
-
+    if @comment.save
+      post.CommentsCounter += 1
+      post.save
+      redirect_to user_post_url(post_author, post), notice: 'Comment was successfully registered!'
+    else
+      render :new
+      flash[:alert] = 'Comment was not registered, please try again later.'
+    end
   end
 
   def destroy

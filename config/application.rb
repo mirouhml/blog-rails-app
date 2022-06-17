@@ -8,9 +8,6 @@ Bundler.require(*Rails.groups)
 
 module BlogRailsApp
   class Application < Rails::Application
-    config.api_only = true
-    config.middleware.use ActionDispatch::Cookies
-    config.middleware.use ActionDispatch::Session::CookieStore, key: '_namespace_key'
     # Initialize configuration defaults for originally generated Rails version.
     config.load_defaults 7.0
 
