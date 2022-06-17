@@ -72,10 +72,16 @@ end
 group :test do
   # Use system testing [https://guides.rubyonrails.org/testing.html#system-testing]
   gem 'capybara'
+  gem 'database_cleaner'
+  gem 'factory_bot_rails'
+  gem 'faker'
   gem 'selenium-webdriver'
+  gem 'shoulda-matchers'
   gem 'webdrivers'
 end
 
 gem 'devise', '~> 4.8'
 
 gem 'cancancan', '~> 3.3'
+
+gem 'jwt'

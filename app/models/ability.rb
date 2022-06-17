@@ -1,11 +1,11 @@
 class Ability
   include CanCan::Ability
 
-  def initialize(user)
+  def initialize(_user)
     user ||= User.new # guest user (not logged in)
 
-    can :read, Post
-    can :read, User
+    can :read, :all
+
     return unless user.present?
 
     can :create, Comment
