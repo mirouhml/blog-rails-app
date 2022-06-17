@@ -42,27 +42,27 @@ class ApiController < ApplicationController
   def check_post_comment_params(text)
     if !Post.exists?(params[:post_id])
       json_response({ error: 'Post does not exist.' }, 404)
-      return false
-    elsif  text.nil? || text.empty?
+      false
+    elsif text.nil? || text.empty?
       json_response({ error: 'Comment text is empty.' }, 400)
-      return false
+      false
     else
-      return true
+      true
     end
   end
 
   def check_token_user_params(authentication_token)
     if authentication_token.nil?
       json_response({ error: 'Invalid token.' }, 400)
-      return false
+      false
     elsif !authenticate(authentication_token)
       json_response({ error: 'Not authorized.' }, 401)
-      return false 
+      false
     elsif !User.exists?(params[:user_id])
       json_response({ error: 'User does not exist.' }, 404)
-      return false
+      false
     else
-      return true
+      true
     end
   end
 
