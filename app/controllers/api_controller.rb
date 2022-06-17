@@ -13,7 +13,7 @@ class ApiController < ApplicationController
     user_id = params[:user_id]
     json_response({error: 'User does not exist.'}, 404) && return unless User.exists?(params[:user_id])
 
-    posts = Post.find_by(author_id: params[:user_id])
+    posts = Post.where(author_id: params[:user_id])
 
     json_response([], 200) && return unless !posts.nil?
 
@@ -32,7 +32,7 @@ class ApiController < ApplicationController
     post_id = params[:post_id]
     json_response({error: 'Post does not exist.'}, 404) && return unless Post.exists?(params[:post_id])
 
-    comments = Comment.find_by(post_id: params[:post_id])
+    comments = Comment.where(post_id: params[:post_id])
 
     json_response([], 200) && return unless !comments.nil?
 
@@ -54,7 +54,6 @@ class ApiController < ApplicationController
     text = params[:text]
     json_response({error: 'Comment text is empty.'}, 400) && return if text.nil? || text.empty?
 
-    puts "USER: #{@current_user}"
     comment = Comment.new(text: text, author: @current_user, post_id: post_id)
     if comment.save
       json_response(comment, 200)
