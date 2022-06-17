@@ -16,7 +16,9 @@ class ApiController < ApplicationController
     authentication_token = params[:authentication_token]
     return unless check_token_user_params(authentication_token)
 
-    comments = Comment.where(post_id: params[:post_id])
+    return unless check_post_params
+
+    comments = Comment.where(post_id: params[:post_id], author_id: params[:user_id])
 
     json_response(comments)
   end
@@ -40,14 +42,22 @@ class ApiController < ApplicationController
   private
 
   def check_post_comment_params(text)
-    if !Post.exists?(params[:post_id])
-      json_response({ error: 'Post does not exist.' }, 404)
-      false
-    elsif text.nil? || text.empty?
+    return false unless check_post_params
+
+    if text.nil? || text.empty?
       json_response({ error: 'Comment text is empty.' }, 400)
       false
     else
       true
+    end
+  end
+
+  def check_post_params
+    if Post.where(id: params[:post_id], author_id: params[:user_id]).exists?
+      true
+    else
+      json_response({ error: 'Post does not exist.' }, 404)
+      false
     end
   end
 
